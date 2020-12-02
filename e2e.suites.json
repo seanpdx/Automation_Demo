@@ -1,0 +1,6 @@
+{
+    "smoke": [
+        "features/verifySearchEngine.feature"
+    ]
+  }
+  

@@ -1,8 +1,7 @@
 let env = require('./environment.js'),
-   // suiteListing = require('./e2e.conf.json'),
+    suiteListing = require('./e2e.suites.json'),
     fs = require('fs'),
     fsPath = require('fs-path'),
-  //  appConfig = JSON.parse(fs.readFileSync('./config/client.json')),
     reportPath = (process.argv.indexOf('--dateReport') >= 0 ? `reports/${getDatePath()}-` : 'reports/');
 
 function touchReportFiles() {
@@ -63,10 +62,10 @@ let config = {
             './stepDefinitions/*.js'
         ],
         format: ['json:' + reportPath + 'report.json'],
-        tags: process.env.tags || ["@smoke_test"]
+        tags: process.env.tags
     },
 
-   // suites: suiteListing,
+    suites: suiteListing,
 
     onPrepare: function () {
         updateParams(global.browser.params);
@@ -86,8 +85,8 @@ let config = {
     afterLaunch: function () {
         const reporter = require('cucumber-html-reporter');
         const options = {
-            name: 'Functional E2E Report',
-            brandTitle: 'My Dashboard',
+            name: 'Automation Demo',
+            brandTitle: 'Search Engine Testing',
             theme: 'bootstrap',
             jsonFile: reportPath + 'report.json',
             output: reportPath + 'index.html',

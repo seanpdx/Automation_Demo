@@ -7,6 +7,6 @@
 
 
 ### Testing Steps
-1. Terminal command: `tags="@searchTerm" npm run e2e  --  --dateReport`
-
-2. Headless mode: `tags="@searchTerm" npm run e2e  --   --headless --dateReport`
+1. Terminal command with Tags: `tags="@searchTerm" npm run e2e -- --dateReport`
+2. Terminal command with Suites: `npm run e2e -- --suite smoke --dateReport` Suites defined in e2e.suites.son, use to order your tests instead of tags.
+3. Headless mode: `tags="@searchTerm" npm run e2e -- --headless --dateReport`
